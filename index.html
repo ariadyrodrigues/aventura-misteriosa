@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Aventura Misteriosa</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #101b24, #263d35);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: #ffffff15;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        h1 {
+            color: #d6c28c;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 10px;
+            background: #c5a76c;
+            color: #17231e;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ead5a3;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🗝️ Uma Aventura Misteriosa</h1>
+
+    <h2 id="titulo">A Floresta Encantada</h2>
+
+    <p id="historia">
+        Você está voltando para casa quando encontra uma floresta
+        desconhecida. No meio das árvores, percebe uma luz misteriosa
+        e ouve uma voz chamando seu nome.
+
+        Curioso, você decide entrar na floresta para descobrir
+        o que está acontecendo.
+
+        De repente, encontra dois caminhos diferentes.
+    </p>
+
+    <h3 id="pergunta">Qual caminho você deseja seguir?</h3>
+
+    <div id="opcoes">
+        <button onclick="escolher(1)">
+            🌲 Caminho da floresta
+        </button>
+
+        <button onclick="escolher(2)">
+            🏰 Caminho do castelo
+        </button>
+    </div>
+
+    <div id="resultado"></div>
+
+</div>
+
+<script>
+
+function escolher(opcao) {
+
+    let historia = document.getElementById("historia");
+    let pergunta = document.getElementById("pergunta");
+    let opcoes = document.getElementById("opcoes");
+    let titulo = document.getElementById("titulo");
+    let resultado = document.getElementById("resultado");
+
+    resultado.innerHTML = "";
+
+    if (opcao === 1) {
+
+        titulo.innerHTML = "O Lago Misterioso";
+
+        historia.innerHTML =
+        "Você segue pela floresta e encontra um lago brilhante. " +
+        "No fundo da água, existe uma chave dourada. " +
+        "Ao lado do lago, uma pequena ponte leva até uma caverna.";
+
+        pergunta.innerHTML = "O que você vai fazer?";
+
+        opcoes.innerHTML = `
+            <button onclick="escolher(3)">🔑 Pegar a chave</button>
+            <button onclick="escolher(4)">🕳️ Entrar na caverna</button>
+        `;
+
+    } else if (opcao === 2) {
+
+        titulo.innerHTML = "O Castelo Abandonado";
+
+        historia.innerHTML =
+        "Você chega a um castelo antigo. A porta está entreaberta " +
+        "e uma luz aparece em uma das janelas. " +
+        "Você percebe uma escada e uma porta misteriosa.";
+
+        pergunta.innerHTML = "Por onde deseja começar?";
+
+        opcoes.innerHTML = `
+            <button onclick="escolher(5)">🪜 Subir as escadas</button>
+            <button onclick="escolher(6)">🚪 Abrir a porta misteriosa</button>
+        `;
+
+    } else if (opcao === 3) {
+
+        titulo.innerHTML = "O Tesouro Perdido";
+
+        historia.innerHTML =
+        "Você pega a chave dourada e percebe que ela tem um símbolo " +
+        "igual ao desenho encontrado na entrada do castelo. " +
+        "Ao voltar, encontra uma porta secreta e consegue abri-la. " +
+        "Dentro dela existe um tesouro antigo!";
+
+        pergunta.innerHTML = "Você conseguiu descobrir o segredo da floresta!";
+
+        finalizar("🏆 FINAL BOM: Você encontrou o tesouro perdido e se tornou o guardião da floresta!");
+
+    } else if (opcao === 4) {
+
+        titulo.innerHTML = "A Caverna Escura";
+
+        historia.innerHTML =
+        "Dentro da caverna, você encontra inscrições antigas " +
+        "nas paredes. Elas revelam que a floresta esconde um segredo " +
+        "que ninguém conseguiu descobrir.";
+
+        pergunta.innerHTML = "Você encontrou uma pista importante!";
+
+        finalizar("✨ FINAL MISTERIOSO: Você descobriu os segredos da caverna e deixou uma nova aventura para o futuro!");
+
+    } else if (opcao === 5) {
+
+        titulo.innerHTML = "A Torre do Castelo";
+
+        historia.innerHTML =
+        "No alto da torre, você encontra um livro antigo. " +
+        "Ao abri-lo, uma luz aparece e revela a história de um " +
+        "tesouro escondido na floresta.";
+
+        pergunta.innerHTML = "O que você deseja fazer?";
+
+        opcoes.innerHTML = `
+            <button onclick="escolher(7)">📖 Ler o livro inteiro</button>
+            <button onclick="escolher(8)">🏃 Sair do castelo</button>
+        `;
+
+    } else if (opcao === 6) {
+
+        titulo.innerHTML = "A Sala Secreta";
+
+        historia.innerHTML =
+        "Você abre a porta e encontra uma sala cheia de objetos antigos. " +
+        "Em cima de uma mesa existe um mapa misterioso.";
+
+        pergunta.innerHTML = "Qual será sua escolha?";
+
+        opcoes.innerHTML = `
+            <button onclick="escolher(9)">🗺️ Seguir o mapa</button>
+            <button onclick="escolher(10)">🔍 Investigar a sala</button>
+        `;
+
+    } else if (opcao === 7) {
+
+        titulo.innerHTML = "O Grande Segredo";
+
+        historia.innerHTML =
+        "O livro revela que você foi escolhido para proteger " +
+        "o tesouro da floresta. Uma passagem secreta se abre " +
+        "e você encontra uma sala cheia de riquezas.";
+
+        finalizar("🏆 FINAL DE SUCESSO: Você descobriu o grande segredo e salvou a história da floresta!");
+
+    } else if (opcao === 8) {
+
+        titulo.innerHTML = "O Fim da Jornada";
+
+        historia.innerHTML =
+        "Você decide deixar o castelo e voltar para casa. " +
+        "Mesmo sem descobrir tudo, nunca esquecerá essa aventura.";
+
+        finalizar("🌙 FINAL ALTERNATIVO: A aventura terminou, mas o mistério continua!");
+
+    } else if (opcao === 9) {
+
+        titulo.innerHTML = "O Mapa Secreto";
+
+        historia.innerHTML =
+        "Você segue o mapa e encontra uma passagem escondida " +
+        "embaixo de uma árvore. Lá está o tesouro que procurava!";
+
+        finalizar("💎 FINAL ESPECIAL: Você encontrou o tesouro e desvendou o maior mistério da floresta!");
+
+    } else if (opcao === 10) {
+
+        titulo.innerHTML = "O Último Mistério";
+
+        historia.innerHTML =
+        "Ao investigar a sala, você encontra uma carta antiga. " +
+        "Ela conta que o verdadeiro tesouro não é ouro, " +
+        "mas o conhecimento escondido naquele castelo.";
+
+        finalizar("📜 FINAL SURPREENDENTE: Você descobriu que o maior tesouro era o conhecimento!");
+
+    }
+}
+
+function finalizar(mensagem) {
+
+    document.getElementById("pergunta").innerHTML = "Fim da aventura!";
+
+    document.getElementById("opcoes").innerHTML =
+    '<button onclick="location.reload()">🔄 Jogar novamente</button>';
+
+    document.getElementById("resultado").innerHTML = mensagem;
+}
+
+</script>
+
+</body>
+</html>
